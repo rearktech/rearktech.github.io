@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Rearktech] | Mobil Geliştirici & Teknoloji</title>
+    <meta name="description" content="[Rearktech] kişisel teknoloji portfolyosu ve mobil uygulamaları.">
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-card: #131b2e;
+            --bg-card-hover: #1c2742;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: #233252;
+            --tag-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        /* Profil / Hero */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .avatar-placeholder {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            color: #ffffff;
+            box-shadow: 0 0 25px var(--accent-glow);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto 24px;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #090d16;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--tag-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Yetkinlikler / Teknolojiler */
+        .skills-section {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .skill-tag {
+            background: var(--tag-bg);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Başlıklar */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Uygulama / Proje Kartları */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .app-category {
+            font-size: 0.75rem;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .card-links a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .card-links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Alt Bilgi */
+        footer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 0; }
+            h1 { font-size: 1.75rem; }
+            .card-footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Profil Bölümü -->
+    <header>
+        <div class="avatar-placeholder">DEV</div>
+        <h1>[Adınız Soyadınız]</h1>
+        <div class="subtitle">Mobil & Yazılım Geliştirici</div>
+        <p class="bio">
+            Android (Kotlin / Jetpack Compose) ve modern teknolojilerle kullanıcı odaklı, performanslı mobil uygulamalar ve dijital çözümler geliştiriyorum.
+        </p>
+        <div class="social-links">
+            <a href="https://github.com/[kullaniciadi]" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+            <a href="mailto:[ornek@email.com]" class="btn btn-primary">İletişime Geç</a>
+        </div>
+    </header>
+
+    <!-- Teknolojiler / Yetkinlikler -->
+    <section class="skills-section">
+        <div class="skills-grid">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Jetpack Compose</span>
+            <span class="skill-tag">Android SDK</span>
+            <span class="skill-tag">Room Database</span>
+            <span class="skill-tag">Retrofit & REST API</span>
+            <span class="skill-tag">Material 3</span>
+            <span class="skill-tag">Git</span>
+        </div>
+    </section>
+
+    <!-- Mobil Uygulamalar Vitrini -->
+    <section>
+        <h2>Yayınlanan Uygulamalar & Projeler</h2>
+        
+        <div class="projects-grid">
+            <!-- Uygulama 1 -->
+            <article class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="app-title">[Uygulama 1 Adı]</div>
+                    </div>
+                    <span class="app-category">Android Uygulaması</span>
+                </div>
+                <p class="app-desc">
+                    Modern Jetpack Compose mimarisi ve yerel veritabanı altyapısıyla geliştirilmiş, hızlı ve kullanıcı dostu mobil uygulama.
+                </p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">Google Play'de Gör</a>
+                    </div>
+                    <div class="card-links">
+                        <a href="./privacy.html">Gizlilik Politikası</a>
+                        <span>&bull;</span>
+                        <a href="mailto:[ornek@email.com]">Uygulama Desteği</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Uygulama 2 (Geliştirme Aşamasında / İkinci Proje) -->
+            <article class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="app-title">[Uygulama 2 Adı]</div>
+                    </div>
+                    <span class="app-category">Geliştirme Aşamasında</span>
+                </div>
+                <p class="app-desc">
+                    Verimlilik ve kullanıcı deneyimini ön planda tutan yeni nesil yardımcı mobil araç.
+                </p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Yakında Yayında</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="./privacy.html">Gizlilik Politikası</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Alt Bilgi -->
+    <footer>
+        <p>&copy; 2026 [Rearktech]. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 6px;"><a href="./privacy.html" style="color: var(--text-muted); text-decoration: none;">Gizlilik Politikası</a></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
